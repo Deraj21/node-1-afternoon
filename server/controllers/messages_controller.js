@@ -49,7 +49,7 @@ module.exports = {
 
   // DELETE
   delete: (req, res) => {
-    const index = messages.findIndex(message => message.id == req.params.id);
+    let index = messages.findIndex(message => message.id == req.params.id);
     messages.splice(index, 1);
 
     res.status(200).send(messages);

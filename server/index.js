@@ -3,7 +3,9 @@ const bodyParser = require('body-parser');
 const mc = require('./controllers/messages_controller.js');
 
 const app = express(); // creates express app
+
 app.use( bodyParser.json() ); // configures app to parse json from the body
+app.use( express.static( __dirname + '/../public/build' ) ); // connects the server to the actual app
 
 app.post  ('/api/messages'    , mc.create);
 app.get   ('/api/messages'    , mc.read);
